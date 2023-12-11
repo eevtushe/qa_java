@@ -5,10 +5,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -19,7 +18,6 @@ public class LionTest {
 
     @Test
     public void testGetKittens() throws Exception {
-
         when(felineMock.getKittens()).thenReturn(3);
 
         Lion lion = new Lion("Самец", felineMock);
@@ -30,13 +28,21 @@ public class LionTest {
     }
 
     @Test
-    public void testDoesHaveMane() throws Exception {
-        when(felineMock.getFood("Хищник")).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
-
+    public void testDoesHaveManeForMale() throws Exception {
         Lion lion = new Lion("Самец", felineMock);
 
-        List<String> result = lion.getFood();
+        assertTrue(lion.doesHaveMane());
+    }
 
-        assertEquals(Arrays.asList("Животные", "Птицы", "Рыба"), result);
+    @Test
+    public void testDoesHaveManeForFemale() throws Exception {
+        Lion lion = new Lion("Самка", felineMock);
+
+        assertFalse(lion.doesHaveMane());
+    }
+
+    @Test(expected = Exception.class)
+    public void testInvalidSex() throws Exception {
+        new Lion("InvalidSex", felineMock);
     }
 }

@@ -8,14 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
-
-
 
 @RunWith(Parameterized.class)
 public class CatTest {
@@ -31,19 +28,12 @@ public class CatTest {
     @InjectMocks
     private Cat cat;
 
-    private String food;
-
-    public CatTest(String food) {
-        this.food = food;
-    }
+    @Parameterized.Parameter
+    public String food;
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {"Мясные продукты"},
-                {"Рыба"},
-                {"Другие продукты"}
-        });
+        return CatTestParameterized.data();
     }
 
     @Test

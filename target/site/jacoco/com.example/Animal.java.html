@@ -5,17 +5,17 @@ import java.util.List;
 <span class="fc" id="L5">public class Animal {</span>
 
     public List&lt;String&gt; getFood(String animalKind) throws Exception {
-<span class="nc bnc" id="L8" title="All 2 branches missed.">        if (&quot;Травоядное&quot;.equals(animalKind)) {</span>
+<span class="pc bpc" id="L8" title="1 of 2 branches missed.">        if (&quot;Травоядное&quot;.equals(animalKind)) {</span>
 <span class="nc" id="L9">            return List.of(&quot;Трава&quot;, &quot;Различные растения&quot;);</span>
-<span class="nc bnc" id="L10" title="All 2 branches missed.">        } else if (&quot;Хищник&quot;.equals(animalKind)) {</span>
-<span class="nc" id="L11">            return List.of(&quot;Животные&quot;, &quot;Птицы&quot;, &quot;Рыба&quot;);</span>
+<span class="pc bpc" id="L10" title="1 of 2 branches missed.">        } else if (&quot;Хищник&quot;.equals(animalKind)) {</span>
+<span class="fc" id="L11">            return List.of(&quot;Животные&quot;, &quot;Птицы&quot;, &quot;Рыба&quot;);</span>
         } else {
 <span class="nc" id="L13">            throw new Exception(&quot;Неизвестный вид животного, используйте значение Травоядное или Хищник&quot;);</span>
         }
     }
 
     public String getFamily() {
-<span class="nc" id="L18">        return &quot;Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи&quot;;</span>
+<span class="fc" id="L18">        return &quot;Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
